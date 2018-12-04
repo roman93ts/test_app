@@ -14,7 +14,7 @@ class App extends Component {
 	}
 
 	onField = (event) => {
-		const newValue = event.target.value;
+		const newValue = event.target.value.toLowerCase();
 		this.setState({
 			searchField: newValue
 		})
