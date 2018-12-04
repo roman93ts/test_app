@@ -1,0 +1,17 @@
+.card {
+	background: linear-gradient(to top left,rgba(234, 111, 55,0.7),rgba(128, 239, 236,0.7));
+	text-align: center;
+	display: inline-block;
+	border-radius: 30px;
+	margin: 10px;
+	transition: 0.5s all;
+	box-shadow: 0 0 15px rgb(0,0,0);
+}
+
+.card:hover {
+	transform: scale(1.05);
+}
+
+.card:active {
+	transform: scale(0.95);
+}
