@@ -8,20 +8,27 @@ class App extends Component {
 	constructor(){
 		super()
 		this.state = {
-
+			robots: robots,
+			searchField: ''
 		}
 	}
 
-	// changeSearchField = (event) => {
-	// 	console.log(event.target.value)
-	// }
+	onField = (event) => {
+		const newValue = event.target.value;
+		this.setState({
+			searchField: newValue
+		})
+	}
 
 	render(){
+		const newRobots = this.state.robots.filter(user => {
+			return user.name.toLowerCase().includes(this.state.searchField)	
+		})
 		return (
 			<div>
 				<h1>Bender Friends</h1>
-				<SearchField />
-				<CardPlate array={robots}/>
+				<SearchField changeSearchField={this.onField}/>
+				<CardPlate array={newRobots}/>
 			</div>
 		);
 	}

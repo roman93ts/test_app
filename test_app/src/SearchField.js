@@ -1,13 +1,13 @@
 import React from 'react';
 import './SearchField.css';
 
-const SearchField = () => {
+const SearchField = ({changeSearchField}) => {
 	return (
 		<div className='input'>
 			<input 
 				type='search' 
 				placeholder='filter robots'
-				// onChange={changeSearchField}
+				onChange={changeSearchField}
 			/>
 		</div>
 	);
