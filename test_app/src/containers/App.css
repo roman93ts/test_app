@@ -6,3 +6,8 @@ h1 {
 	margin: 10px;
 	color: #ffa500;
 }
+
+.appLay {
+	display: grid;
+	grid-template-rows: auto auto 80vh;
+}

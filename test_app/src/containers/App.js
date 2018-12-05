@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import CardPlate from './CardPlate';
-// import {robots} from './robots';
-import SearchField from './SearchField';
+import CardPlate from '../components/CardPlate';
+import SearchField from '../components/SearchField';
 
 class App extends Component {
 	constructor(){
@@ -38,7 +37,7 @@ class App extends Component {
 			return <h1>Loading...</h1>
 		} else {
 			return (
-				<div>
+				<div className="appLay">
 					<h1>Bender Friends</h1>
 					<SearchField changeSearchField={this.onField}/>
 					<CardPlate array={newRobots}/>
