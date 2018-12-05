@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './App.css';
 import CardPlate from './CardPlate';
-import {robots} from './robots';
+// import {robots} from './robots';
 import SearchField from './SearchField';
 
 class App extends Component {
 	constructor(){
 		super()
 		this.state = {
-			robots: robots,
+			robots: [],
 			searchField: ''
 		}
 	}
@@ -20,17 +20,31 @@ class App extends Component {
 		})
 	}
 
+	componentDidMount(){
+		fetch("https://jsonplaceholder.typicode.com/users")
+		.then(data => data.json())
+		.then(user => {
+			this.setState({
+				robots:user
+			})
+		})
+	}
+
 	render(){
 		const newRobots = this.state.robots.filter(user => {
 			return user.name.toLowerCase().includes(this.state.searchField)	
 		})
-		return (
-			<div>
-				<h1>Bender Friends</h1>
-				<SearchField changeSearchField={this.onField}/>
-				<CardPlate array={newRobots}/>
-			</div>
-		);
+		if (!this.state.robots.length){
+			return <h1>Loading...</h1>
+		} else {
+			return (
+				<div>
+					<h1>Bender Friends</h1>
+					<SearchField changeSearchField={this.onField}/>
+					<CardPlate array={newRobots}/>
+				</div>
+			);
+		}
 	}
 }
 
